@@ -7,16 +7,19 @@ import 'login_page.dart';
 import 'register_page.dart';
 import 'reset_password.dart';
 import 'home_page.dart';
+import 'profile_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,13 +27,14 @@ class MyApp extends StatelessWidget {
         fontFamily: 'avenir',
       ),
       themeMode: ThemeMode.dark,
-      home: WelcomePage(),
+      home: const WelcomePage(),
       routes: {
-        '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
-        '/reset_password': (context) => ResetPasswordPage(),
-        '/book_info': (context) => BookInfo(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/reset_password': (context) => const ResetPasswordPage(),
+        '/book_info': (context) => const BookInfo(),
         '/home': (context) => MyHomePage(),
+        '/profile': (context) => ProfilePage(),
       },
     );
   }
